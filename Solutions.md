@@ -92,9 +92,11 @@ The employee's last name is Peacock and the first name is Margaret.
 SELECT * FROM [Customers] WHERE Country='Germany'
 SELECT * FROM [Orders] as a INNER JOIN [Customers] as b on a.CustomerID=b.CustomerID WHERE Country='Germany'
 
+SELECT * FROM OrderDetails LEFT JOIN Orders ON OrderDetails.OrderDetailID=Orders.OrderID
 ```
 
 Steps:
 
 1. Query and get CustomerIDs who were from Germany, that is `1, 6, 17, 25, 39, 44, 52, 56, 63, 79, 86`.
 2. Query and get OrderIDs that were shipped to customers from Germany, that is `10267, 10273, 10277, 10279, 10284, 10285, 10286, 10301, 10312, 10313, 10323, 10325, 10337, 10342, 10343, 10345, 10348, 10356, 10361, 10363, 10391, 10396, 10407, 10418, 10438`.
+3. Query and get

@@ -2,6 +2,8 @@
 
 ## Question 1
 
+The solution code is included in "thought_process.py".
+
 ### answer a
 
 The original calculation did not conserder the items in each order.
@@ -34,8 +36,21 @@ print("AOV = {:.2f}".format(correct_aov))
 
 ### answer b
 
+We could know from the data set that:
+
+- There are 100 different shops.
+- There are 301 different users.
+- There are 3 methods to pay for merchandises, including debit, credit_card, and cash.
+
+Besides, we could describe the price information of different shops using histograms since each shop sells only one model of shoe. 
+Notice that there are outliers: one is the shop (id:78) selling expensive sneakers with the price of $25725, the other is the shop (id:42), selling 34063 sneaker items in 51 orders.
+
+Some results are included in the folder "Question1-b".
+
 
 ### answer c
+
+The value is that we could analyze the price of sneakers, the sales volumes, and the total income in different shops. So we would know the consumption level of users and provide users suggestions about similar goods, such as similar prices and so on. We could also provide shops suggestions about what sneakers they should sell, for example, selling too expensive sneakers may not be a good idea.
 
 
 ## Question 2

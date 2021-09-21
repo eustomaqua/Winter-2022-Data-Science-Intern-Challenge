@@ -1,0 +1,143 @@
+requirements.txt
+numpy==1.14.4
+pandas==0.23.0
+matplotlib==2.2.2
+
+
+
+Wrong calculation    :  AOV = 3145.13
+Correct calculation 1:  AOV = 387.74
+Correct calculation 2:  AOV = 357.92
+
+
+
+dframe.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 5000 entries, 0 to 4999
+Data columns (total 7 columns):
+order_id          5000 non-null int64
+shop_id           5000 non-null int64
+user_id           5000 non-null int64
+order_amount      5000 non-null int64
+total_items       5000 non-null int64
+payment_method    5000 non-null object
+created_at        5000 non-null object
+dtypes: int64(5), object(2)
+memory usage: 273.5+ KB
+
+
+Q: How many shops are there?
+A: There are 100 different shops.
+Q: How many users are there?
+A: There are 301 different users.
+Q: How many payment methods are there?
+A: There are 3 methods to pay for merchandises, including cash, debit, and credit_card.
+/usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py:6462: UserWarning: The 'normed' kwarg is deprecated, and has been replaced by the 'density' kwarg.
+  warnings.warn("The 'normed' kwarg is deprecated, and has been "
+Shop #  1: sneaker price is 158.0.  There are 44 orders and  86 sold items in total.
+Shop #  2: sneaker price is 94.0.   There are 55 orders and 102 sold items in total.
+Shop #  3: sneaker price is 148.0.  There are 48 orders and  99 sold items in total.
+Shop #  4: sneaker price is 128.0.  There are 51 orders and 103 sold items in total.
+Shop #  5: sneaker price is 142.0.  There are 45 orders and  92 sold items in total.
+Shop #  6: sneaker price is 187.0.  There are 59 orders and 121 sold items in total.
+Shop #  7: sneaker price is 112.0.  There are 56 orders and 109 sold items in total.
+Shop #  8: sneaker price is 132.0.  There are 46 orders and  84 sold items in total.
+Shop #  9: sneaker price is 118.0.  There are 59 orders and 117 sold items in total.
+Shop # 10: sneaker price is 148.0.  There are 53 orders and 119 sold items in total.
+Shop # 11: sneaker price is 184.0.  There are 49 orders and  95 sold items in total.
+Shop # 12: sneaker price is 201.0.  There are 53 orders and  93 sold items in total.
+Shop # 13: sneaker price is 160.0.  There are 63 orders and 136 sold items in total.
+Shop # 14: sneaker price is 116.0.  There are 58 orders and 121 sold items in total.
+Shop # 15: sneaker price is 153.0.  There are 52 orders and 105 sold items in total.
+Shop # 16: sneaker price is 156.0.  There are 41 orders and  71 sold items in total.
+Shop # 17: sneaker price is 176.0.  There are 53 orders and 100 sold items in total.
+Shop # 18: sneaker price is 156.0.  There are 51 orders and 112 sold items in total.
+Shop # 19: sneaker price is 163.0.  There are 64 orders and 126 sold items in total.
+Shop # 20: sneaker price is 127.0.  There are 52 orders and 103 sold items in total.
+Shop # 21: sneaker price is 142.0.  There are 46 orders and 100 sold items in total.
+Shop # 22: sneaker price is 146.0.  There are 48 orders and  90 sold items in total.
+Shop # 23: sneaker price is 156.0.  There are 55 orders and 112 sold items in total.
+Shop # 24: sneaker price is 140.0.  There are 55 orders and 126 sold items in total.
+Shop # 25: sneaker price is 130.0.  There are 48 orders and  86 sold items in total.
+Shop # 26: sneaker price is 176.0.  There are 49 orders and  95 sold items in total.
+Shop # 27: sneaker price is 169.0.  There are 54 orders and 107 sold items in total.
+Shop # 28: sneaker price is 164.0.  There are 43 orders and  84 sold items in total.
+Shop # 29: sneaker price is 163.0.  There are 58 orders and 118 sold items in total.
+Shop # 30: sneaker price is 153.0.  There are 56 orders and 108 sold items in total.
+Shop # 31: sneaker price is 129.0.  There are 47 orders and  98 sold items in total.
+Shop # 32: sneaker price is 101.0.  There are 42 orders and  79 sold items in total.
+Shop # 33: sneaker price is 173.0.  There are 40 orders and  87 sold items in total.
+Shop # 34: sneaker price is 122.0.  There are 50 orders and  96 sold items in total.
+Shop # 35: sneaker price is 164.0.  There are 52 orders and 104 sold items in total.
+Shop # 36: sneaker price is 130.0.  There are 50 orders and  98 sold items in total.
+Shop # 37: sneaker price is 142.0.  There are 48 orders and 115 sold items in total.
+Shop # 38: sneaker price is 190.0.  There are 35 orders and  72 sold items in total.
+Shop # 39: sneaker price is 134.0.  There are 41 orders and  82 sold items in total.
+Shop # 40: sneaker price is 161.0.  There are 48 orders and  88 sold items in total.
+Shop # 41: sneaker price is 118.0.  There are 59 orders and 127 sold items in total.
+Shop # 42: sneaker price is 352.0.  There are 51 orders and 34063 sold items in total.
+Shop # 43: sneaker price is 181.0.  There are 58 orders and 107 sold items in total.
+Shop # 44: sneaker price is 144.0.  There are 39 orders and  71 sold items in total.
+Shop # 45: sneaker price is 142.0.  There are 58 orders and 110 sold items in total.
+Shop # 46: sneaker price is 166.0.  There are 43 orders and  90 sold items in total.
+Shop # 47: sneaker price is 145.0.  There are 47 orders and  84 sold items in total.
+Shop # 48: sneaker price is 117.0.  There are 40 orders and  83 sold items in total.
+Shop # 49: sneaker price is 129.0.  There are 53 orders and 115 sold items in total.
+Shop # 50: sneaker price is 193.0.  There are 44 orders and  92 sold items in total.
+Shop # 51: sneaker price is 187.0.  There are 46 orders and  89 sold items in total.
+Shop # 52: sneaker price is 146.0.  There are 41 orders and  89 sold items in total.
+Shop # 53: sneaker price is 112.0.  There are 68 orders and 130 sold items in total.
+Shop # 54: sneaker price is 133.0.  There are 50 orders and 104 sold items in total.
+Shop # 55: sneaker price is 171.0.  There are 48 orders and  92 sold items in total.
+Shop # 56: sneaker price is 117.0.  There are 37 orders and  69 sold items in total.
+Shop # 57: sneaker price is 147.0.  There are 53 orders and 107 sold items in total.
+Shop # 58: sneaker price is 138.0.  There are 59 orders and 109 sold items in total.
+Shop # 59: sneaker price is 178.0.  There are 60 orders and 121 sold items in total.
+Shop # 60: sneaker price is 177.0.  There are 47 orders and  93 sold items in total.
+Shop # 61: sneaker price is 158.0.  There are 50 orders and 109 sold items in total.
+Shop # 62: sneaker price is 160.0.  There are 43 orders and  83 sold items in total.
+Shop # 63: sneaker price is 136.0.  There are 58 orders and 113 sold items in total.
+Shop # 64: sneaker price is 133.0.  There are 43 orders and  88 sold items in total.
+Shop # 65: sneaker price is 154.0.  There are 54 orders and 116 sold items in total.
+Shop # 66: sneaker price is 161.0.  There are 53 orders and 103 sold items in total.
+Shop # 67: sneaker price is 131.0.  There are 37 orders and  77 sold items in total.
+Shop # 68: sneaker price is 136.0.  There are 47 orders and  88 sold items in total.
+Shop # 69: sneaker price is 131.0.  There are 60 orders and 121 sold items in total.
+Shop # 70: sneaker price is 173.0.  There are 59 orders and 117 sold items in total.
+Shop # 71: sneaker price is 164.0.  There are 66 orders and 130 sold items in total.
+Shop # 72: sneaker price is 160.0.  There are 46 orders and  89 sold items in total.
+Shop # 73: sneaker price is 165.0.  There are 58 orders and 118 sold items in total.
+Shop # 74: sneaker price is 153.0.  There are 38 orders and  76 sold items in total.
+Shop # 75: sneaker price is 128.0.  There are 42 orders and  79 sold items in total.
+Shop # 76: sneaker price is 155.0.  There are 42 orders and  87 sold items in total.
+Shop # 77: sneaker price is 156.0.  There are 50 orders and  90 sold items in total.
+Shop # 78: sneaker price is 25725.0.    There are 46 orders and  88 sold items in total.
+Shop # 79: sneaker price is 181.0.  There are 54 orders and  98 sold items in total.
+Shop # 80: sneaker price is 145.0.  There are 45 orders and  93 sold items in total.
+Shop # 81: sneaker price is 177.0.  There are 59 orders and 128 sold items in total.
+Shop # 82: sneaker price is 177.0.  There are 42 orders and  83 sold items in total.
+Shop # 83: sneaker price is 129.0.  There are 42 orders and  81 sold items in total.
+Shop # 84: sneaker price is 153.0.  There are 59 orders and 132 sold items in total.
+Shop # 85: sneaker price is 172.0.  There are 35 orders and  67 sold items in total.
+Shop # 86: sneaker price is 130.0.  There are 52 orders and 111 sold items in total.
+Shop # 87: sneaker price is 149.0.  There are 52 orders and 102 sold items in total.
+Shop # 88: sneaker price is 176.0.  There are 50 orders and 101 sold items in total.
+Shop # 89: sneaker price is 196.0.  There are 61 orders and 118 sold items in total.
+Shop # 90: sneaker price is 178.0.  There are 49 orders and 111 sold items in total.
+Shop # 91: sneaker price is 160.0.  There are 54 orders and 110 sold items in total.
+Shop # 92: sneaker price is 90.0.   There are 42 orders and  76 sold items in total.
+Shop # 93: sneaker price is 114.0.  There are 59 orders and 111 sold items in total.
+Shop # 94: sneaker price is 134.0.  There are 45 orders and 100 sold items in total.
+Shop # 95: sneaker price is 168.0.  There are 39 orders and  74 sold items in total.
+Shop # 96: sneaker price is 153.0.  There are 51 orders and 110 sold items in total.
+Shop # 97: sneaker price is 162.0.  There are 48 orders and  96 sold items in total.
+Shop # 98: sneaker price is 133.0.  There are 58 orders and 107 sold items in total.
+Shop # 99: sneaker price is 195.0.  There are 54 orders and  94 sold items in total.
+Shop #100: sneaker price is 111.0.  There are 40 orders and  77 sold items in total.
+
+
+
+The outlier is the shop #78, selling the sneaker with the price of $25725.0. There are 88 items sold in 46 orders, and the total amount is $2263800.
+
+The outlier is the shop #42, selling the sneaker with the price of $352.0. There are 34063 items sold in 51 orders, and the total amount is $11990176.
+[Finished in 17.7s]

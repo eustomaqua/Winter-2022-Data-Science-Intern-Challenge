@@ -55,27 +55,31 @@ The value is that we could analyze the price of sneakers, the sales volumes, and
 
 ## Question 2
 
-### instruction
-
-access the data set
-```SQL
-SELECT * FROM Customers;
-```
-
 ### answer a
 
+Step 1. Find the `ShipperID=1` (Speedy Express)
+```SQL
+SELECT * FROM [Shippers]
+```
+
+Step 2. Find the number of records.
 ```SQL
 SELECT * FROM [Orders] WHERE ShipperID = 1
 ```
 
-There are 54 orders shipped by Speedy Express in total.
+There are 54 orders (i.e., 'Number of Records') shipped by Speedy Express in total.
 
 ![](Question2_answer_a.png)
 
 ### answer b
 
+Step 1. Find the ID of the employee with the most orders.
 ```SQL
 SELECT EmployeeID as Employee, COUNT(*) as Counts FROM [Orders] GROUP BY Employee
+```
+
+Step 2. Find the information of the exact employee.
+```SQL
 SELECT * FROM [Employees] WHERE EmployeeID='4'
 ```
 
@@ -111,6 +115,7 @@ LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID
 LEFT JOIN Customers ON Customers.CustomerID=Orders.CustomerID
 WHERE Customers.Country='Germany'
 GROUP BY ProductID
+ORDER BY counts
 ```
 
 Step3. View the information of products and find the exact merchandise. The answer is `ProductName=Gorgonzola Telino`.
@@ -126,3 +131,14 @@ Here is more information about this product:
 - CategoryID: 4
 - Unit: 12 - 100 g pkgs
 - Price: 12.5
+
+
+Screenshots of different steps
+- Step 1
+  ![](Question2_answer_c1.png)
+- Step 2
+  ![](Question2_answer_c2a.png)
+  ![](Question2_answer_c2b.png)
+- Step 3
+  ![](Question2_answer_c3.png)
+

@@ -94,7 +94,7 @@ To find the answer, we need the information from three tables, that is, `Custome
 - Both the 'Orders' table and the 'OrderDetails' table have the column named `OrderID`.
 - The 'OrderDetails' table has the column named `ProductID`, and so is the table 'Products'.
 
-We'd like to merge these three tables together and then discover the most popular merchandise, using the column named 'ProductID' in the table 'OrderDetails'. As long as we obtain the most popular ProductID, we could get the merchandise from the table `Products`.
+We'd like to merge these three tables together and then discover the most popular merchandise, using the column named 'ProductID' in the table 'OrderDetails'. As long as we obtain the most popular ProductID, we could get the merchandise from the table 'Products'.
 
 Step 1. Join three tables ('OrderDetails', 'Orders', and 'Customers') and find the orders shipped to Germany.
 ```SQL

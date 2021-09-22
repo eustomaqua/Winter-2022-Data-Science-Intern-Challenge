@@ -65,8 +65,7 @@ SELECT * FROM Customers;
 ### answer a
 
 ```SQL
-SELECT * FROM [Orders]
-WHERE ShipperID = 1
+SELECT * FROM [Orders] WHERE ShipperID = 1
 ```
 
 There are 54 orders shipped by Speedy Express in total.
@@ -77,7 +76,7 @@ There are 54 orders shipped by Speedy Express in total.
 
 ```SQL
 SELECT EmployeeID as Employee, COUNT(*) as Counts FROM [Orders] GROUP BY Employee
-SELECT * FROM [Employees]
+SELECT * FROM [Employees] WHERE EmployeeID='4'
 ```
 
 The EmployeeID with the most orders is 4, who has 40 orders.
@@ -88,15 +87,42 @@ The employee's last name is Peacock and the first name is Margaret.
 
 ### answer c
 
-```SQL
-SELECT * FROM [Customers] WHERE Country='Germany'
-SELECT * FROM [Orders] as a INNER JOIN [Customers] as b on a.CustomerID=b.CustomerID WHERE Country='Germany'
+To find the answer, we need the information from three tables, that is, `Customers`, `Orders`, `OrderDetails`, and `Products`.
 
-SELECT * FROM OrderDetails LEFT JOIN Orders ON OrderDetails.OrderDetailID=Orders.OrderID
+- The 'Customers' table has the column named `Country`, so we could find the costomers who came from Germany.
+- Both the 'Customers' table and the 'Orders' table have the column named `CustomerID`.
+- Both the 'Orders' table and the 'OrderDetails' table have the column named `OrderID`.
+- The 'OrderDetails' table has the column named `ProductID`, and so is the table 'Products'.
+
+We'd like to merge these three tables together and then discover the most popular merchandise, using the column named 'ProductID' in the table 'OrderDetails'. As long as we obtain the most popular ProductID, we could get the merchandise from the table `Products`.
+
+Step 1. Join three tables ('OrderDetails', 'Orders', and 'Customers') and find the orders shipped to Germany.
+```SQL
+SELECT * FROM [OrderDetails]
+LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID
+LEFT JOIN Customers ON Customers.CustomerID=Orders.CustomerID
+WHERE Customers.Country='Germany'
 ```
 
-Steps:
+Step 2. Query the most popular product's ID. The answer is `ProductID=31` which has 5 orders.
+```SQL
+SELECT ProductID as product, COUNT(*) as counts FROM [OrderDetails]
+LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID
+LEFT JOIN Customers ON Customers.CustomerID=Orders.CustomerID
+WHERE Customers.Country='Germany'
+GROUP BY ProductID
+```
 
-1. Query and get CustomerIDs who were from Germany, that is `1, 6, 17, 25, 39, 44, 52, 56, 63, 79, 86`.
-2. Query and get OrderIDs that were shipped to customers from Germany, that is `10267, 10273, 10277, 10279, 10284, 10285, 10286, 10301, 10312, 10313, 10323, 10325, 10337, 10342, 10343, 10345, 10348, 10356, 10361, 10363, 10391, 10396, 10407, 10418, 10438`.
-3. Query and get
+Step3. View the information of products and find the exact merchandise. The answer is `ProductName=Gorgonzola Telino`.
+```SQL
+SELECT * FROM [Products] WHERE ProductID='31'
+```
+
+In summary, the product named 'Gorgonzola Telino' is ordered the most by customers in Germany. 
+Here is more information about this product:
+- ProductID: 31
+- ProductName: Gorgonzola Telino
+- SupplierID: 14
+- CategoryID: 4
+- Unit: 12 - 100 g pkgs
+- Price: 12.5
